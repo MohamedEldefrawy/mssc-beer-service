@@ -48,6 +48,7 @@ public class BeerDto implements Serializable  {
     private BeerStyleEnum beerStyle;
 
     @NotNull
+    @Positive
     private String upc;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
