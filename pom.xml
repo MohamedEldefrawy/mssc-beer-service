@@ -10,7 +10,7 @@
     <version>1.0.17</version>
   </parent>
   <properties>
-    <spring.restdocs.version>3.0.0</spring.restdocs.version>
+    <spring.restdocs.version>2.0.7.RELEASE</spring.restdocs.version>
     <lombok.version>1.18.28</lombok.version>
     <mapstruct.version>1.5.5.Final</mapstruct.version>
   </properties>
@@ -46,6 +46,7 @@
       <version>${spring.restdocs.version}</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -73,7 +74,7 @@
             <path>
               <groupId>org.mapstruct</groupId>
               <artifactId>mapstruct-processor</artifactId>
-              <version>${org.mapstruct.version}</version>
+              <version>${mapstruct.version}</version>
             </path>
             <path>
               <groupId>org.projectlombok</groupId>
