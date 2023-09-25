@@ -92,7 +92,15 @@ class BeerControllerTest {
                 fields.withPath("upc").type("String").description("upc of selected Beer"),
                 fields.withPath("price").type("BigDecimal").description("price of selected Beer"),
                 fields.withPath("quantityOnHand").type("Integer").description("Available quantity")
-            )));
+            ), responseFields(fields.withPath("id").type("UUID").description("id of Beer").ignored(),
+                fields.withPath("version").type("String").description("version of api").ignored(),
+                fields.withPath("createdDate").type("OffsetDateTime").description("Beer creation date").ignored(),
+                fields.withPath("lastModifiedDate").type("OffsetDateTime").description("Beer last update").ignored(),
+                fields.withPath("beerName").type("String").description("Name of Beer"),
+                fields.withPath("beerStyle").type("String").description("Style of Beer"),
+                fields.withPath("upc").type("String").description("upc of selected Beer"),
+                fields.withPath("price").type("BigDecimal").description("price of selected Beer"),
+                fields.withPath("quantityOnHand").type("Integer").description("Available quantity"))));
   }
 
   @Test
@@ -108,20 +116,20 @@ class BeerControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(beerDtoJson))
 
-        .andExpect(status().isNoContent()).andDo(
+        .andExpect(status().isOk()).andDo(
             document("v1/beer-update", pathParameters(
-                parameterWithName("beerId")
-                    .description("UUID if desired beer to get .")), requestFields(
-                fields.withPath("id").type("UUID").description("id of Beer").ignored(),
-                fields.withPath("version").type("String").description("version of api").ignored(),
-                fields.withPath("createdDate").type("OffsetDateTime").description("Beer creation date").ignored(),
-                fields.withPath("lastModifiedDate").type("OffsetDateTime").description("Beer last update").ignored(),
-                fields.withPath("beerName").type("String").description("Name of Beer"),
-                fields.withPath("beerStyle").type("String").description("Style of Beer"),
-                fields.withPath("upc").type("String").description("upc of selected Beer"),
-                fields.withPath("price").type("BigDecimal").description("price of selected Beer"),
-                fields.withPath("quantityOnHand").type("Integer").description("Available quantity")
-            )));
+                    parameterWithName("beerId").description("UUID if desired beer to get .")),
+                requestFields(
+                    fields.withPath("id").type("UUID").description("id of Beer").ignored(),
+                    fields.withPath("version").type("String").description("version of api").ignored(),
+                    fields.withPath("createdDate").type("OffsetDateTime").description("Beer creation date").ignored(),
+                    fields.withPath("lastModifiedDate").type("OffsetDateTime").description("Beer last update").ignored(),
+                    fields.withPath("beerName").type("String").description("Name of Beer"),
+                    fields.withPath("beerStyle").type("String").description("Style of Beer"),
+                    fields.withPath("upc").type("String").description("upc of selected Beer"),
+                    fields.withPath("price").type("BigDecimal").description("price of selected Beer"),
+                    fields.withPath("quantityOnHand").type("Integer").description("Available quantity")
+                )));
   }
 
   BeerDto getValidBeerDto() {
