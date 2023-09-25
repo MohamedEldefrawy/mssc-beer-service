@@ -1,4 +1,4 @@
-package guru.springframework.msscbeerservice.web.controller;
+package guru.springframework.msscbeerservice.jacksonPropertyNamingStrategy;
 
 import guru.sfg.brewery.model.BeerDto;
 import guru.sfg.brewery.model.BeerStyleEnum;
@@ -6,9 +6,8 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-public class BaseTest {
-  BeerDto createBeer()
-  {
+class BaseTest {
+  BeerDto createBeer() {
     return BeerDto.builder()
         .id(UUID.randomUUID())
         .beerName("randomBeer")

@@ -1,4 +1,4 @@
-package guru.springframework.msscbeerservice.web.controller;
+package guru.springframework.msscbeerservice.jacksonPropertyNamingStrategy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import guru.sfg.brewery.model.BeerDto;
@@ -11,8 +11,8 @@ import org.springframework.test.context.ActiveProfiles;
 
 @JsonTest
 @Slf4j
-@ActiveProfiles("nameStrategy")
-class JacksonNameStrategyTest extends BaseTest {
+@ActiveProfiles("kebab")
+class JacksonKebabNameStrategyTest extends BaseTest {
   @Autowired
   ObjectMapper mapper;
 
